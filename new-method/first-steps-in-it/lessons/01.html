@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Занятие 1 · Первые шаги в IT</title>
+  <style>
+    :root {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-secondary-light: #dbeafe;
+      --color-success: #10b981;
+      --color-success-light: #d1fae5;
+      --color-warning: #f59e0b;
+      --color-warning-light: #fef3c7;
+      --color-error: #ef4444;
+      --color-error-light: #fee2e2;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-muted: #94a3b8;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 72rem;
+      --touch-target-min: 44px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    .hero {
+      background: var(--gradient-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6) var(--space-6) var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .hero h1 {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.25;
+    }
+    .hero p {
+      margin: 0;
+      opacity: 0.95;
+      max-width: 36rem;
+    }
+    .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    .card h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 1.25rem;
+    }
+    .card h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 1.05rem;
+    }
+    .card p { margin: 0 0 var(--space-3); color: var(--color-text-primary); }
+    .card p:last-child { margin-bottom: 0; }
+    .muted { color: var(--color-text-secondary); }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+    .steps li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: var(--space-3);
+      align-items: start;
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+    }
+    .steps .num {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    @media (max-width: 640px) {
+      .quiz-grid { grid-template-columns: 1fr; }
+    }
+    .quiz-btn {
+      min-height: var(--touch-target-min);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      padding: var(--space-3) var(--space-4);
+      font: inherit;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .quiz-btn:hover { border-color: var(--color-primary); }
+    .quiz-btn.is-correct {
+      border-color: var(--color-success);
+      background: var(--color-success-light);
+    }
+    .quiz-btn.is-wrong {
+      border-color: var(--color-error);
+      background: var(--color-error-light);
+    }
+    .quiz-feedback {
+      margin-top: var(--space-3);
+      min-height: 1.5em;
+      font-weight: 600;
+    }
+    .quiz-feedback.ok { color: var(--color-success); }
+    .quiz-feedback.bad { color: var(--color-error); }
+
+    .media-ph {
+      border: 2px dashed var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+      padding: var(--space-6) var(--space-4);
+      text-align: center;
+      color: var(--color-text-secondary);
+      margin: var(--space-4) 0;
+    }
+    .media-ph strong { display: block; color: var(--color-text-primary); margin-bottom: var(--space-2); }
+
+    .figure {
+      margin: var(--space-4) 0 0;
+      text-align: center;
+    }
+    .figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: var(--radius-card);
+    }
+    .figure figcaption {
+      margin-top: var(--space-3);
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    @media (min-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+    .mini {
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .mini h3 { margin: 0 0 var(--space-2); font-size: 1rem; }
+    .mini p { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; }
+    .idea {
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-align: center;
+    }
+    .idea .emoji {
+      display: block;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: var(--space-2);
+    }
+    .idea h3 {
+      margin: 0 0 var(--space-2);
+      font-size: 1rem;
+    }
+    .idea p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .rules {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .rules li { margin-bottom: var(--space-2); }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero__meta">
+        <span class="chip">IT Camp</span>
+        <span class="chip">Первые шаги в IT</span>
+        <span class="chip">Занятие 1</span>
+      </div>
+      <h1>Знакомство с компьютером</h1>
+      <p>Сегодня узнаем, что умеет компьютер, подружимся с мышью и устроим рабочий стол: папка, фигуры из копий и первый файл внутри.</p>
+    </header>
+
+    <section class="card" aria-labelledby="goal">
+      <h2 id="goal">Цель занятия</h2>
+      <p>К концу урока ты отличишь ввод от вывода, создашь папку, скопируешь объекты мышью и положишь текстовый документ в свой «сундук».</p>
+    </section>
+
+    <section class="card" aria-labelledby="warm">
+      <h2 id="warm">Какие бывают компьютеры?</h2>
+      <p>Ноутбук, моноблок и настольный ПК выглядят по-разному — но это всё компьютеры.</p>
+      <p class="muted">Компьютер помогает работать с информацией: картинками, звуком, текстом, играми и сообщениями.</p>
+      <figure class="figure">
+        <img src="images/kompjutery.png" alt="Ноутбук, моноблок и настольный ПК рядом — это всё компьютеры" width="1536" height="1024" />
+        <figcaption>Ноутбук, моноблок и настольный ПК — всё это компьютеры</figcaption>
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="quiz">
+      <h2 id="quiz">Игра: ввод или вывод?</h2>
+      <p>Устройства <strong>ввода</strong> кладут информацию в компьютер. Устройства <strong>вывода</strong> показывают или проигрывают результат.</p>
+      <p class="muted">Нажми правильный ответ для каждого предмета.</p>
+
+      <h3>1. Клавиатура</h3>
+      <div class="quiz-grid" data-quiz data-answer="in">
+        <button type="button" class="quiz-btn" data-choice="in">Ввод — мы печатаем текст</button>
+        <button type="button" class="quiz-btn" data-choice="out">Вывод — компьютер нам показывает</button>
+      </div>
+      <p class="quiz-feedback" aria-live="polite"></p>
+
+      <h3>2. Монитор</h3>
+      <div class="quiz-grid" data-quiz data-answer="out">
+        <button type="button" class="quiz-btn" data-choice="in">Ввод</button>
+        <button type="button" class="quiz-btn" data-choice="out">Вывод — мы видим картинку</button>
+      </div>
+      <p class="quiz-feedback" aria-live="polite"></p>
+
+      <h3>3. Мышь</h3>
+      <div class="quiz-grid" data-quiz data-answer="in">
+        <button type="button" class="quiz-btn" data-choice="in">Ввод — двигаем курсор и кликаем</button>
+        <button type="button" class="quiz-btn" data-choice="out">Вывод</button>
+      </div>
+      <p class="quiz-feedback" aria-live="polite"></p>
+
+      <h3>4. Колонки / наушники</h3>
+      <div class="quiz-grid" data-quiz data-answer="out">
+        <button type="button" class="quiz-btn" data-choice="in">Ввод</button>
+        <button type="button" class="quiz-btn" data-choice="out">Вывод — слышим звук</button>
+      </div>
+      <p class="quiz-feedback" aria-live="polite"></p>
+
+      <h3>5. Микрофон</h3>
+      <div class="quiz-grid" data-quiz data-answer="in">
+        <button type="button" class="quiz-btn" data-choice="in">Ввод — записываем звук</button>
+        <button type="button" class="quiz-btn" data-choice="out">Вывод</button>
+      </div>
+      <p class="quiz-feedback" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="devices">
+      <h2 id="devices">Короткая шпаргалка</h2>
+      <div class="grid-2">
+        <div class="mini">
+          <h3>Ввод</h3>
+          <p>Клавиатура, мышь, микрофон, веб-камера, сканер, геймпад.</p>
+        </div>
+        <div class="mini">
+          <h3>Вывод</h3>
+          <p>Монитор, колонки, наушники, принтер.</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <img src="images/ustrojstva-vvod-vyvod.png" alt="Слева устройства ввода: мышь и клавиатура; справа устройства вывода: монитор и наушники" width="1536" height="1024" />
+        <figcaption>Слева — ввод, справа — вывод</figcaption>
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="sides">
+      <h2 id="sides">Где левая, где правая?</h2>
+      <p>Сначала подними левую руку, потом правую. На картинке у мыши стороны подписаны на звёздах — так проще запомнить.</p>
+      <figure class="figure">
+        <img src="images/levaya-pravaya.jpg" alt="Компьютерная мышь показывает левую и правую сторону: на звёздах написано «Левая» и «Правая»" width="1024" height="683" />
+        <figcaption>Запомни: левая и правая — это про твои руки. Так же устроены кнопки мыши.</figcaption>
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="mouse">
+      <h2 id="mouse">Практика: дружим с мышью</h2>
+      <p>Возьми мышь. Поводи ею по столу — на экране двигается стрелка. Это <strong>курсор</strong>.</p>
+      <div class="grid-2" style="margin-top: var(--space-4);">
+        <div class="mini">
+          <h3>Левая кнопка</h3>
+          <p>Главная команда: выбрать, открыть (двойной клик), перетащить.</p>
+        </div>
+        <div class="mini">
+          <h3>Правая кнопка</h3>
+          <p>Спросить компьютер: «Что можно сделать?» — появится меню.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="folder">
+      <h2 id="folder">Делаем папку для работ</h2>
+      <p>Папка — как «сундук» для файлов. Создадим её на рабочем столе.</p>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <div>Щёлкни <strong>правой</strong> кнопкой по пустому месту на рабочем столе.</div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>Выбери <strong>Создать → Папку</strong>.</div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>Назови папку своим именем, например: <strong>Алина</strong>. Если буквы не те — справа внизу переключи язык (РУС / ENG).</div>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <div>Кликни по пустому месту стола — имя сохранится.</div>
+        </li>
+      </ol>
+      <figure class="figure">
+        <img src="images/sozdat-papku.png" alt="Скриншот: меню «Создать → Папку» с жёлтой обводкой" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="rename">
+      <h2 id="rename">Переименуем папку</h2>
+      <p>Правой кнопкой по папке → <strong>Переименовать</strong> → напиши новое имя → клик по пустому месту.</p>
+      <p class="muted">Быстрый способ: один медленный клик по имени или клавиша <strong>F2</strong>.</p>
+      <figure class="figure">
+        <img src="images/pereimenovat.png" alt="Скриншот: пункт «Переименовать» в меню папки с жёлтой обводкой" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="copy">
+      <h2 id="copy">Копируем и двигаем</h2>
+      <p><strong>Копировать</strong> — сделать точную копию. Компьютер «запоминает» объект, а потом мы его вставляем.</p>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <div>Правой кнопкой по своей папке → <strong>Копировать</strong>.</div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>Правой кнопкой по пустому месту стола → <strong>Вставить</strong>. Появится «… — копия».</div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>Зажми папку <strong>левой</strong> кнопкой и не отпускай — так её можно перетаскивать.</div>
+        </li>
+      </ol>
+      <figure class="figure">
+        <img src="images/kopirovat-vstavit.png" alt="Скриншот: в меню папки выделен пункт «Копировать», на рабочем столе — пункт «Вставить», оба с жёлтой обводкой" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="shapes">
+      <h2 id="shapes">Миссия: фигура из папок</h2>
+      <p>Скопируй папку несколько раз и расставь копии на рабочем столе так, чтобы получилась фигура. Выбери одну идею — или придумай свою!</p>
+      <div class="grid-4">
+        <div class="idea">
+          <span class="emoji" aria-hidden="true">😊</span>
+          <h3>Смайлик</h3>
+          <p>Два глаза, щёчки и дуга рта</p>
+        </div>
+        <div class="idea">
+          <span class="emoji" aria-hidden="true">⭐</span>
+          <h3>Звездочка</h3>
+          <p>Центр и пять лучей вокруг</p>
+        </div>
+        <div class="idea">
+          <span class="emoji" aria-hidden="true">❤️</span>
+          <h3>Сердце</h3>
+          <p>Два бугорка сверху и остриё снизу</p>
+        </div>
+        <div class="idea">
+          <span class="emoji" aria-hidden="true">🏠</span>
+          <h3>Домик</h3>
+          <p>Квадрат снизу и треугольная крыша</p>
+        </div>
+      </div>
+      <ol class="steps" style="margin-top: var(--space-4);">
+        <li>
+          <span class="num">1</span>
+          <div>Копируй и вставляй, пока не хватит «деталей».</div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>Перетащи папки мышкой — собери фигуру на рабочем столе.</div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>Покажи соседу, что получилось!</div>
+        </li>
+      </ol>
+      <figure class="figure">
+        <img src="images/figury-iz-papok.png" alt="Четыре примера фигур из папок на рабочем столе: смайлик, звёздочка, сердце и домик" width="1536" height="1024" />
+        <figcaption>Примеры: смайлик, звёздочка, сердце и домик — собери любую фигуру из папок</figcaption>
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="select">
+      <h2 id="select">Убираем лишнее рамочкой</h2>
+      <p>Удалять по одной папке долго. Можно выделить сразу много.</p>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <div>Зажми левую кнопку в углу стола и тяни мышь — появится синяя рамочка.</div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>«Поймай» все лишние копии (свою основную папку оставь снаружи).</div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>Правой кнопкой по выделенному → <strong>Удалить</strong>.</div>
+        </li>
+      </ol>
+      <p class="muted">Рамочкой можно не только удалять — так же копируют и открывают сразу несколько объектов.</p>
+      <figure class="figure">
+        <img src="images/ramochka-vydeleniya.png" alt="Скриншот: синяя рамочка выделения нескольких папок на рабочем столе" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="file">
+      <h2 id="file">Первый файл в папку</h2>
+      <p>В папках хранят разные файлы. Создадим текстовый документ и положим его внутрь.</p>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <div>Правой кнопкой по столу → <strong>Создать → Текстовый документ</strong>.</div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>Назови его, например: <strong>Привет</strong>.</div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>Зажми документ левой кнопкой и перетащи <strong>прямо на свою папку</strong> — он «запрыгнет» внутрь.</div>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <div>Открой папку <strong>двойным кликом</strong> левой кнопкой и проверь: файл на месте?</div>
+        </li>
+      </ol>
+      <figure class="figure">
+        <img src="images/tekstovyj-v-papku.png" alt="Скриншот: создание текстового документа и перетаскивание файла в папку" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="safe">
+      <h2 id="safe">Правила безопасности</h2>
+      <ul class="rules">
+        <li>Не оставляй компьютер включённым без дела.</li>
+        <li>Выключай через меню «Пуск» (разберём на следующем занятии).</li>
+        <li>Не ешь и не пей за компьютером — опасно для техники.</li>
+        <li>Не ставь программы без разрешения преподавателя.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-quiz]").forEach((group) => {
+      const answer = group.dataset.answer;
+      const feedback = group.nextElementSibling;
+      group.querySelectorAll(".quiz-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const ok = btn.dataset.choice === answer;
+          group.querySelectorAll(".quiz-btn").forEach((b) => {
+            b.classList.remove("is-correct", "is-wrong");
+            b.disabled = true;
+          });
+          btn.classList.add(ok ? "is-correct" : "is-wrong");
+          if (!ok) {
+            const right = group.querySelector(`[data-choice="${answer}"]`);
+            if (right) right.classList.add("is-correct");
+          }
+          feedback.textContent = ok ? "Верно! Так держать." : "Почти! Смотри подсветку правильного ответа.";
+          feedback.className = "quiz-feedback " + (ok ? "ok" : "bad");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

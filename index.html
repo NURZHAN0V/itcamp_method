@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT Camp · Методические пакеты</title>
+  <style>
+    :root {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 52rem;
+      --touch-target-min: 44px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    .hero {
+      background: var(--gradient-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .hero h1 {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.25;
+    }
+    .hero p { margin: 0; opacity: 0.95; }
+
+    .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    .card h2 {
+      margin: 0 0 var(--space-2);
+      font-size: 1.25rem;
+    }
+    .card > p {
+      margin: 0 0 var(--space-4);
+      color: var(--color-text-secondary);
+    }
+
+    .links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-3);
+    }
+    .links a {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      min-height: var(--touch-target-min);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-muted);
+      color: var(--color-text-primary);
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .links a:hover {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+    .links .tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    .module-path {
+      margin: 0 0 var(--space-3);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero__meta">
+        <span class="chip">IT Camp</span>
+        <span class="chip">Методические пакеты</span>
+      </div>
+      <h1>Оглавление</h1>
+      <p>Новые учебные материалы: модули, занятия и домашние задания.</p>
+    </header>
+
+    <section class="card">
+      <h2>Первые шаги в IT</h2>
+      <p class="module-path">new-method/first-steps-in-it/</p>
+      <p>Знакомство с компьютером, мышью и файлами. 12 занятий.</p>
+      <ul class="links">
+        <li>
+          <a href="new-method/first-steps-in-it/lessons/01.html">
+            <span>Занятие 1 · Знакомство с компьютером</span>
+            <span class="tag">lessons/01.html</span>
+          </a>
+        </li>
+        <li>
+          <a href="new-method/first-steps-in-it/homework/01.html">
+            <span>Домашнее задание 1 · Тренируем мышь</span>
+            <span class="tag">homework/01.html</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

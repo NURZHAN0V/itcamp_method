@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Домашнее задание 1 · Первые шаги в IT</title>
+  <style>
+    :root {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-success: #10b981;
+      --color-success-light: #d1fae5;
+      --color-warning: #f59e0b;
+      --color-warning-light: #fef3c7;
+      --color-error: #ef4444;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-orange: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 72rem;
+      --touch-target-min: 44px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    .hero {
+      background: var(--gradient-orange);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .hero h1 { margin: 0 0 var(--space-2); font-size: clamp(1.4rem, 4vw, 1.85rem); }
+    .hero p { margin: 0; max-width: 36rem; }
+
+    .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    .card h2 { margin: 0 0 var(--space-3); font-size: 1.25rem; }
+    .card p { margin: 0 0 var(--space-3); }
+    .card p:last-child { margin-bottom: 0; }
+    .muted { color: var(--color-text-secondary); }
+
+    .steps { margin: 0; padding-left: 1.2rem; }
+    .steps li { margin-bottom: var(--space-2); }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--touch-target-min);
+      padding: 0 var(--space-5);
+      border-radius: var(--radius-md);
+      font: inherit;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-primary:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: var(--color-bg-card);
+      border-color: var(--color-border);
+      color: var(--color-text-primary);
+    }
+    .time-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .time-pills label {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--touch-target-min);
+      padding: 0 14px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-border);
+      background: var(--color-bg-muted);
+      cursor: pointer;
+      font-weight: 700;
+      gap: 6px;
+    }
+    .time-pills input { accent-color: var(--color-primary); }
+    .time-pills label:has(input:checked) {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    .hud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+      font-weight: 700;
+    }
+    .hud span { color: var(--color-text-secondary); font-weight: 600; }
+
+    .arena {
+      position: relative;
+      height: min(52vh, 420px);
+      min-height: 280px;
+      border-radius: var(--radius-card);
+      background: linear-gradient(160deg, #1e293b 0%, #334155 100%);
+      overflow: hidden;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    .arena.is-idle::after {
+      content: "Выбери время и нажми «Старт»";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 700;
+      pointer-events: none;
+      padding: var(--space-4);
+      text-align: center;
+    }
+    .target {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: radial-gradient(circle at 35% 35%, #fda4af, #ef4444 55%, #b91c1c);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      cursor: crosshair;
+      transform: translate(-50%, -50%);
+    }
+    .result {
+      display: none;
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-success-light);
+      font-weight: 700;
+    }
+    .result.show { display: block; }
+
+    .figure {
+      margin: var(--space-4) 0 0;
+      text-align: center;
+    }
+    .figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: var(--radius-card);
+    }
+    .figure figcaption {
+      margin-top: var(--space-3);
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero__meta">
+        <span class="chip">IT Camp</span>
+        <span class="chip">Первые шаги в IT</span>
+        <span class="chip">ДЗ №1</span>
+      </div>
+      <h1>Тренируем мышь</h1>
+      <p>Тема занятия: знакомство с компьютером. Пройди тренажёр, сделай скриншот результата и отправь на проверку.</p>
+    </header>
+
+    <section class="card">
+      <h2>Задание</h2>
+      <ol class="steps">
+        <li>Выбери время: 10, 20 или 30 секунд.</li>
+        <li>Нажми <strong>Старт</strong> и кликай по красным мишеням левой кнопкой мыши.</li>
+        <li>Чем дольше раунд — тем больше нужна концентрация. Удачи!</li>
+        <li>Сделай <strong>скриншот</strong> результата и отправь его в дневник на проверку.</li>
+      </ol>
+      <p class="muted">Подсказка: на Windows часто работает клавиша <strong>PrtSc</strong> или <strong>Win + Shift + S</strong>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Тренажёр прицеливания</h2>
+      <div class="controls">
+        <div class="time-pills" role="radiogroup" aria-label="Длительность">
+          <label><input type="radio" name="duration" value="10" checked /> 10 сек</label>
+          <label><input type="radio" name="duration" value="20" /> 20 сек</label>
+          <label><input type="radio" name="duration" value="30" /> 30 сек</label>
+        </div>
+        <button type="button" class="btn btn-primary" id="startBtn">Старт</button>
+        <button type="button" class="btn btn-secondary" id="resetBtn">Сброс</button>
+      </div>
+
+      <div class="hud">
+        <div>Время: <span id="timeLeft">—</span></div>
+        <div>Попадания: <span id="score">0</span></div>
+      </div>
+
+      <div class="arena is-idle" id="arena" aria-label="Поле тренажёра"></div>
+      <div class="result" id="result" role="status" aria-live="polite"></div>
+
+      <figure class="figure">
+        <img src="images/trenazher-primer.png" alt="Пример скриншота результата тренажёра: попадания и время" width="1536" height="1024" />
+        <figcaption>Пример: так может выглядеть твой скриншот результата</figcaption>
+      </figure>
+    </section>
+  </div>
+
+  <script>
+    const arena = document.getElementById("arena");
+    const startBtn = document.getElementById("startBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const timeLeftEl = document.getElementById("timeLeft");
+    const scoreEl = document.getElementById("score");
+    const resultEl = document.getElementById("result");
+
+    let score = 0;
+    let timeLeft = 0;
+    let timerId = null;
+    let running = false;
+    let target = null;
+
+    function selectedDuration() {
+      const el = document.querySelector('input[name="duration"]:checked');
+      return Number(el ? el.value : 10);
+    }
+
+    function clearTarget() {
+      if (target) {
+        target.remove();
+        target = null;
+      }
+    }
+
+    function spawnTarget() {
+      clearTarget();
+      if (!running) return;
+      const pad = 28;
+      const x = pad + Math.random() * (arena.clientWidth - pad * 2);
+      const y = pad + Math.random() * (arena.clientHeight - pad * 2);
+      target = document.createElement("button");
+      target.type = "button";
+      target.className = "target";
+      target.setAttribute("aria-label", "Мишень");
+      target.style.left = x + "px";
+      target.style.top = y + "px";
+      target.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (!running) return;
+        score += 1;
+        scoreEl.textContent = String(score);
+        spawnTarget();
+      });
+      arena.appendChild(target);
+    }
+
+    function stopGame(finished) {
+      running = false;
+      clearInterval(timerId);
+      timerId = null;
+      clearTarget();
+      startBtn.disabled = false;
+      document.querySelectorAll('input[name="duration"]').forEach((i) => { i.disabled = false; });
+      if (finished) {
+        resultEl.textContent = "Готово! Попаданий: " + score + " за " + selectedDuration() + " сек. Сделай скриншот этого блока и отправь на проверку.";
+        resultEl.classList.add("show");
+      }
+    }
+
+    function startGame() {
+      stopGame(false);
+      resultEl.classList.remove("show");
+      resultEl.textContent = "";
+      score = 0;
+      scoreEl.textContent = "0";
+      timeLeft = selectedDuration();
+      timeLeftEl.textContent = timeLeft + " с";
+      running = true;
+      arena.classList.remove("is-idle");
+      startBtn.disabled = true;
+      document.querySelectorAll('input[name="duration"]').forEach((i) => { i.disabled = true; });
+      spawnTarget();
+      timerId = setInterval(() => {
+        timeLeft -= 1;
+        timeLeftEl.textContent = timeLeft + " с";
+        if (timeLeft <= 0) stopGame(true);
+      }, 1000);
+    }
+
+    function resetGame() {
+      stopGame(false);
+      arena.classList.add("is-idle");
+      timeLeftEl.textContent = "—";
+      score = 0;
+      scoreEl.textContent = "0";
+      resultEl.classList.remove("show");
+      resultEl.textContent = "";
+    }
+
+    startBtn.addEventListener("click", startGame);
+    resetBtn.addEventListener("click", resetGame);
+  </script>
+</body>
+</html>
