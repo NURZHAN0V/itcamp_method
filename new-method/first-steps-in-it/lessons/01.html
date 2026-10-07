@@ -202,6 +202,31 @@
       grid-template-columns: 1fr 1fr;
       gap: var(--space-3);
     }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .video-card {
+      background: var(--color-bg-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .video-card video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #0f172a;
+      aspect-ratio: 16 / 9;
+    }
+    .video-card p {
+      margin: 0;
+      padding: var(--space-3) var(--space-4) var(--space-4);
+      color: var(--color-text-secondary);
+      font-size: 0.92rem;
+    }
     .grid-4 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -510,6 +535,75 @@
       </ol>
       <figure class="figure">
         <img src="images/tekstovyj-v-papku.png" alt="Скриншот: создание текстового документа и перетаскивание файла в папку" width="1536" height="1024" />
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="videos">
+      <h2 id="videos">Видео-подсказки к уроку</h2>
+      <p>Смотри ролики по шагам. Они помогут быстро вспомнить, что делать на компьютере.</p>
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/01.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 1. Что умеет компьютер</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/02.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 2. Клавиатура и мышь</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/03.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 3. Левая и правая кнопки</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/04.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 4. Создаём папку</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/05.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 5. Переименовываем папку</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/06.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 6. Копируем и вставляем</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/07.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 7. Ставим фигуры</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/08.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 8. Выделяем рамочкой</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/09.mp4" type="video/mp4" />
+          </video>
+          <p>Шаг 9. Переносим файл в папку</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="result">
+      <h2 id="result">Фото готового результата</h2>
+      <figure class="figure">
+        <img src="images/rezultat-uroka.png" alt="Готовый результат: фигурка из Minecraft на рабочем столе" width="1024" height="768" />
+        <figcaption>Вот что должно получиться в конце урока: небольшой герой, похожий на персонажа из Minecraft.</figcaption>
       </figure>
     </section>
 
