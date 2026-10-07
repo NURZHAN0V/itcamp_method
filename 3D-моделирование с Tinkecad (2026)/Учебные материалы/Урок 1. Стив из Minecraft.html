@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f7fa">
-  <meta name="description" content="Первый урок по 3D-моделированию: войди в класс Tinkercad и познакомься с виртуальным конструктором.">
+  <meta name="description" content="Собери Стива из Minecraft в Tinkercad шаг за шагом.">
   <title>Урок 1. Стив из Minecraft — IT CAMP</title>
   <style>
     :root {
@@ -12,7 +12,6 @@
       --color-primary: #8b5cf6;
       --color-primary-hover: #7c3aed;
       --color-primary-light: #ede9fe;
-      --color-info: #3b82f6;
       --color-info-light: #dbeafe;
       --color-warning-light: #fef3c7;
       --color-bg-page: #f5f7fa;
@@ -94,13 +93,12 @@
 
     h1,
     h2,
-    h3,
     p {
       margin-top: 0;
     }
 
     h1 {
-      max-width: 18ch;
+      max-width: 16ch;
       margin-bottom: 16px;
       font-size: clamp(2rem, 7vw, 3.25rem);
       line-height: 1.12;
@@ -114,33 +112,46 @@
       font-size: 1.08rem;
     }
 
-    .section-heading {
-      margin: 32px 4px 16px;
-      font-size: clamp(1.4rem, 5vw, 1.8rem);
-      line-height: 1.25;
+    .example {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
     }
 
-    .join-options {
+    .example img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .example figcaption {
+      padding: 12px 16px;
+      color: var(--color-text-secondary);
+    }
+
+    .steps {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
+      margin-top: 24px;
     }
 
-    .option-card {
-      padding: clamp(20px, 5vw, 28px);
+    .step-card {
+      padding: clamp(20px, 5vw, 32px);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-card);
       background: var(--color-bg-card);
     }
 
-    .option-heading {
+    .step-heading {
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    .option-number {
+    .step-number {
       display: grid;
       flex: 0 0 44px;
       width: 44px;
@@ -156,12 +167,46 @@
 
     h2 {
       margin: 5px 0 0;
-      font-size: clamp(1.2rem, 4vw, 1.45rem);
+      font-size: clamp(1.25rem, 4vw, 1.55rem);
       line-height: 1.3;
     }
 
+    .step-card p {
+      margin-bottom: 14px;
+    }
+
+    .step-card p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    .step-card .step-heading + p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    .join-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .option-card {
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    .option-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
     .option-card p {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+    }
+
+    .option-card p:last-child {
+      margin-bottom: 0;
     }
 
     .button {
@@ -186,25 +231,6 @@
       background: var(--color-primary-hover);
     }
 
-    .join-name,
-    .note {
-      margin-top: 16px;
-      padding: 20px 24px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      background: var(--color-bg-card);
-    }
-
-    .join-name {
-      border-color: #bfdbfe;
-      background: var(--color-info-light);
-    }
-
-    .join-name p:last-child,
-    .note p:last-child {
-      margin-bottom: 0;
-    }
-
     .code {
       display: inline-block;
       padding: 2px 8px;
@@ -217,12 +243,30 @@
       letter-spacing: 0.04em;
     }
 
+    .join-name,
+    .note {
+      margin-top: 16px;
+      padding: 20px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+    }
+
+    .join-name {
+      border-color: #bfdbfe;
+      background: var(--color-info-light);
+    }
+
+    .join-name p:last-child,
+    .note p:last-child {
+      margin-bottom: 0;
+    }
+
     .note {
       border-color: #fcd34d;
       background: var(--color-warning-light);
     }
 
-    .note h2 {
+    .note h3 {
       margin: 0 0 8px;
     }
 
@@ -230,71 +274,32 @@
       font-weight: 700;
     }
 
-    .finish {
-      margin-top: 24px;
-      padding: 24px;
-      border: 1px solid #c4b5fd;
-      border-radius: var(--radius-card);
-      background: var(--color-primary-light);
-    }
-
-    .finish p {
-      margin-bottom: 0;
-    }
-
-    .lesson-materials {
-      margin-top: 32px;
-    }
-
-    .lesson-materials h2 {
-      margin-bottom: 16px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-
-    .video-card {
+    .video-wrap {
       overflow: hidden;
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      background: #0f172a;
     }
 
-    .video-card video {
+    video {
       display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
       aspect-ratio: 1920 / 980;
       background: #0f172a;
     }
 
-    .video-card p {
-      margin: 0;
-      padding: 12px 16px;
-      color: var(--color-text-secondary);
-      font-weight: 700;
-    }
-
-    .result-image {
-      margin: 24px 0 0;
-      overflow: hidden;
-      border: 1px solid var(--color-border);
+    .finish {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid #a7f3d0;
       border-radius: var(--radius-card);
-      background: var(--color-bg-card);
+      background: #ecfdf5;
     }
 
-    .result-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .result-image figcaption {
-      padding: 12px 16px;
-      color: var(--color-text-secondary);
+    .finish p {
+      margin-bottom: 0;
     }
 
     @media (max-width: 640px) {
@@ -326,123 +331,178 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#join-class">Перейти к инструкции</a>
+  <a class="skip-link" href="#lesson-steps">Перейти к шагам урока</a>
   <main class="page">
     <header class="hero">
       <p class="eyebrow">IT CAMP · 3D-моделирование</p>
       <h1>Урок 1. Стив из Minecraft</h1>
-      <p class="intro">Приветствуем тебя в увлекательном мире 3D-моделирования! Ты знал, что почти все игрушки, машины и даже дома сначала рисуют на компьютере? Это называется 3D-моделирование. Сегодня ты попробуешь себя в роли мастера, который лепит разные предметы из виртуального пластилина прямо на экране монитора. Для начала мы познакомимся с удобной программой Tinkercad.</p>
+      <p class="intro">Собери Стива из простых фигур в Tinkercad. Смотри короткое видео к каждому шагу и повторяй за ним.</p>
+      <figure class="example">
+        <img src="Урок 1. Стив из Minecraft_files/пример-Стива.png" alt="Готовая 3D-модель Стива из Minecraft: жёлтое лицо, коричневые волосы и голубая одежда" width="725" height="453">
+        <figcaption>Такой Стив получится в конце урока.</figcaption>
+      </figure>
     </header>
 
-    <section id="join-class" aria-labelledby="join-heading">
-      <h2 class="section-heading" id="join-heading">Войди в класс Tinkercad</h2>
-      <div class="join-options">
-        <article class="option-card">
-          <div class="option-heading">
-            <span class="option-number" aria-hidden="true">01</span>
-            <h2>По ссылке</h2>
-          </div>
-          <p>Открой приглашение в наш класс. Tinkercad попросит ввести имя-код.</p>
-          <a class="button" href="https://www.tinkercad.com/joinclass/LXLAMMME6" target="_blank" rel="noopener noreferrer">Перейти в класс</a>
-        </article>
-
-        <article class="option-card">
-          <div class="option-heading">
-            <span class="option-number" aria-hidden="true">02</span>
-            <h2>По коду класса</h2>
-          </div>
-          <p>Открой страницу входа в класс и введи код приглашения.</p>
-          <a class="button" href="https://www.tinkercad.com/joinclass" target="_blank" rel="noopener noreferrer">Открыть страницу входа</a>
-        </article>
+    <section class="step-card" aria-labelledby="join-heading" style="margin-top: 24px;">
+      <div class="step-heading">
+        <span class="step-number" aria-hidden="true">00</span>
+        <h2 id="join-heading">Войди в класс Tinkercad</h2>
       </div>
-
+      <p>Открой класс по ссылке или введи код на странице входа.</p>
+      <div class="join-options">
+        <div class="option-card">
+          <h3>По ссылке</h3>
+          <p>Открой приглашение. Tinkercad попросит ввести имя-код.</p>
+          <a class="button" href="https://www.tinkercad.com/joinclass/LXLAMMME6" target="_blank" rel="noopener noreferrer">Перейти в класс</a>
+        </div>
+        <div class="option-card">
+          <h3>По коду класса</h3>
+          <p>Открой страницу входа и введи код приглашения.</p>
+          <a class="button" href="https://www.tinkercad.com/joinclass" target="_blank" rel="noopener noreferrer">Открыть страницу входа</a>
+        </div>
+      </div>
       <aside class="join-name">
         <p><strong>Код класса:</strong> <span class="code">LXLAMMME6</span></p>
-        <p>Когда Tinkercad попросит имя, введи выданный тебе код ученика — от <span class="code">001</span> до <span class="code">025</span>. Преподаватель входит под кодом <span class="code">teacher</span>.</p>
+        <p>Когда Tinkercad попросит имя, введи свой код ученика — от <span class="code">001</span> до <span class="code">025</span>. Преподаватель входит под кодом <span class="code">teacher</span>.</p>
       </aside>
     </section>
 
-    <aside class="note">
-      <h2>Хочешь создать свой класс?</h2>
-      <p>Открой <a href="https://www.tinkercad.com" target="_blank" rel="noopener noreferrer">сайт Tinkercad</a> и войди в личную учетную запись. Для такого входа может понадобиться VPN. Данные для авторизации попроси у преподавателя отдельно и не публикуй их на общей странице.</p>
-    </aside>
-
-    <aside class="finish">
-      <p>Когда войдешь в класс, ты будешь готов знакомиться с Tinkercad и собирать свои первые 3D-модели. Не бойся пробовать: виртуальные фигурки можно двигать, менять и собирать заново!</p>
-    </aside>
-
-    <section class="lesson-materials" aria-labelledby="lesson-videos">
-      <h2 class="section-heading" id="lesson-videos">Видео к уроку</h2>
-      <div class="video-grid">
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+    <section class="steps" id="lesson-steps" aria-label="Шаги урока">
+      <article class="step-card" id="step-01">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">01</span>
+          <h2>Собираем туловище</h2>
+        </div>
+        <p>Перетащи параллелепипед на рабочую плоскость и измени его размер. По видео собери широкую верхнюю часть и узкое туловище Стива.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 1: Собираем туловище">
             <source src="Урок 1. Стив из Minecraft_files/video-01.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 1</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-02">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">02</span>
+          <h2>Настраиваем размер детали</h2>
+        </div>
+        <p>Выдели фигуру и потяни за белые маркеры, чтобы получить нужную форму. Повторяй движения из видео и не торопись.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 2: Настраиваем размер детали">
             <source src="Урок 1. Стив из Minecraft_files/video-02.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 2</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-03">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">03</span>
+          <h2>Добавляем детали тела</h2>
+        </div>
+        <p>Добавь новые блоки и поставь их рядом с туловищем, как показано в видео. Проверь, что детали стоят на рабочей плоскости.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 3: Добавляем детали тела">
             <source src="Урок 1. Стив из Minecraft_files/video-03.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 3</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-04">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">04</span>
+          <h2>Выбираем цвета</h2>
+        </div>
+        <p>Выдели нужную фигуру и открой палитру цвета. Подбери оттенки для одежды и кожи, как в примере.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 4: Выбираем цвета">
             <source src="Урок 1. Стив из Minecraft_files/video-04.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 4</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-05">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">05</span>
+          <h2>Соединяем детали</h2>
+        </div>
+        <p>Выдели связанные детали и объедини их командой группировки, как в видео. Так части модели будут держаться вместе.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 5: Соединяем детали">
             <source src="Урок 1. Стив из Minecraft_files/video-05.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 5</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-06">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">06</span>
+          <h2>Делаем ноги</h2>
+        </div>
+        <p>Добавь две детали для ног. Расположи их под туловищем и оставь небольшой промежуток между ними.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 6: Делаем ноги">
             <source src="Урок 1. Стив из Minecraft_files/video-06.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 6</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-07">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">07</span>
+          <h2>Проверяем форму тела</h2>
+        </div>
+        <p>Посмотри на модель с разных сторон. Проверь, что руки и ноги стоят ровно, а части тела не потерялись.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 7: Проверяем форму тела">
             <source src="Урок 1. Стив из Minecraft_files/video-07.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 7</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-08">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">08</span>
+          <h2>Добавляем голову</h2>
+        </div>
+        <p>Найди голову персонажа в библиотеке фигур и поставь её на туловище. Подгони положение, как показано в видео.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 8: Добавляем голову">
             <source src="Урок 1. Стив из Minecraft_files/video-08.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 8</p>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline width="1920" height="980">
+        </div>
+      </article>
+
+      <article class="step-card" id="step-09">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">09</span>
+          <h2>Завершаем модель</h2>
+        </div>
+        <p>Осмотри готового Стива. Если какая-то деталь стоит криво, выдели её и поправь положение.</p>
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 9: Завершаем модель">
             <source src="Урок 1. Стив из Minecraft_files/video-09.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
-          <p>Видео 9</p>
-        </article>
-      </div>
-      <figure class="result-image">
-        <img src="Урок 1. Стив из Minecraft_files/пример-Стива.png" alt="Готовая 3D-модель Стива из Minecraft: жёлтое лицо, коричневые волосы и голубая одежда" width="725" height="453">
-        <figcaption>Пример готовой модели Стива.</figcaption>
-      </figure>
+        </div>
+      </article>
     </section>
+
+    <aside class="note">
+      <h3>Нужен личный класс?</h3>
+      <p>Открой <a href="https://www.tinkercad.com" target="_blank" rel="noopener noreferrer">сайт Tinkercad</a> и войди в личную учетную запись. Для такого входа может понадобиться VPN. Данные для авторизации попроси у преподавателя и не публикуй их на общей странице.</p>
+    </aside>
+
+    <aside class="finish">
+      <p>Готово! Ты собрал Стива из простых 3D-фигур. Можешь изменить цвет или придумать ему новый образ.</p>
+    </aside>
   </main>
 </body>
 </html>
