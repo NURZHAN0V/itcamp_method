@@ -242,6 +242,61 @@
       margin-bottom: 0;
     }
 
+    .lesson-materials {
+      margin-top: 32px;
+    }
+
+    .lesson-materials h2 {
+      margin-bottom: 16px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .video-card {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    .video-card video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1920 / 980;
+      background: #0f172a;
+    }
+
+    .video-card p {
+      margin: 0;
+      padding: 12px 16px;
+      color: var(--color-text-secondary);
+      font-weight: 700;
+    }
+
+    .result-image {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    .result-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .result-image figcaption {
+      padding: 12px 16px;
+      color: var(--color-text-secondary);
+    }
+
     @media (max-width: 640px) {
       .join-options {
         grid-template-columns: 1fr;
@@ -315,6 +370,79 @@
     <aside class="finish">
       <p>Когда войдешь в класс, ты будешь готов знакомиться с Tinkercad и собирать свои первые 3D-модели. Не бойся пробовать: виртуальные фигурки можно двигать, менять и собирать заново!</p>
     </aside>
+
+    <section class="lesson-materials" aria-labelledby="lesson-videos">
+      <h2 class="section-heading" id="lesson-videos">Видео к уроку</h2>
+      <div class="video-grid">
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-01.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 1</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-02.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 2</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-03.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 3</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-04.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 4</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-05.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 5</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-06.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 6</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-07.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 7</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-08.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 8</p>
+        </article>
+        <article class="video-card">
+          <video controls preload="metadata" playsinline width="1920" height="980">
+            <source src="Урок 1. Стив из Minecraft_files/video-09.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+          <p>Видео 9</p>
+        </article>
+      </div>
+      <figure class="result-image">
+        <img src="Урок 1. Стив из Minecraft_files/пример-Стива.png" alt="Готовая 3D-модель Стива из Minecraft: жёлтое лицо, коричневые волосы и голубая одежда" width="725" height="453">
+        <figcaption>Пример готовой модели Стива.</figcaption>
+      </figure>
+    </section>
   </main>
 </body>
 </html>
