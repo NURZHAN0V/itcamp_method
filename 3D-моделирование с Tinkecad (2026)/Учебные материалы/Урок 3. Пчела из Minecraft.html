@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fa">
+  <meta name="description" content="Собери блочную пчелу из Minecraft в Tinkercad шаг за шагом.">
+  <title>Урок 3. Пчела из Minecraft — IT CAMP</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-success: #10b981;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-panel: 24px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --content-width: 52rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-bg-page);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-base);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--color-primary-hover);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      color: var(--color-text-primary);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page {
+      width: min(100% - 32px, var(--content-width));
+      margin-inline: auto;
+      padding-block: 32px 64px;
+    }
+
+    .hero {
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-panel);
+      background: var(--color-bg-card);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--color-primary-hover);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 16ch;
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 7vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    .intro {
+      max-width: 62ch;
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+      font-size: 1.08rem;
+    }
+
+    .example {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    .example img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .step-card {
+      padding: clamp(20px, 5vw, 32px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    .step-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step-number {
+      display: grid;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    h2 {
+      margin: 5px 0 0;
+      font-size: clamp(1.25rem, 4vw, 1.55rem);
+      line-height: 1.3;
+    }
+
+    .step-card p {
+      margin-bottom: 14px;
+    }
+
+    .step-card p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    .video-wrap {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #0f172a;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1920 / 980;
+      background: #0f172a;
+    }
+
+    .finish {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius-card);
+      background: #ecfdf5;
+    }
+
+    .finish p {
+      margin-bottom: 0;
+    }
+
+    .assignment {
+      margin-top: 24px;
+    }
+
+    .assignment-list {
+      margin: 0;
+      padding-left: 1.5em;
+    }
+
+    .assignment-list li + li {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        font-size: 16px;
+      }
+
+      .page {
+        width: min(100% - 20px, var(--content-width));
+        padding-block: 10px 36px;
+      }
+
+      .hero {
+        border-radius: var(--radius-card);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#lesson-steps">Перейти к шагам урока</a>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">IT CAMP · 3D-моделирование</p>
+      <h1>Урок 3. Пчела из Minecraft</h1>
+      <p class="intro">Собери блочную пчелу из фигур в Tinkercad. Повторяй шаги по видео: сначала сделаем корпус, а потом добавим глаза, полоски, лапки и усики.</p>
+      <figure class="example">
+        <img src="Урок 3. Пчела из Minecraft_files/пример-пчелы.png" alt="Готовая 3D-модель пчелы из Minecraft: жёлтый кубический корпус, чёрные полоски, большие глаза, коричневые лапки и усики" width="725" height="453">
+      </figure>
+    </header>
+
+    <section class="steps" id="lesson-steps" aria-label="Шаги урока">
+      <article class="step-card" id="step-01">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">01</span>
+          <h2>Создаём корпус</h2>
+        </div>
+        <p>Перетащи куб на рабочую плоскость. Потяни за белые маркеры, чтобы сделать из него крупный прямоугольный блок. Это туловище нашей пчелы.</p>
+        <p>Оставь блок достаточно большим: на нём должны поместиться лицо, полоски, лапки и усики.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 1: Создаём корпус">
+            <source src="Урок 3. Пчела из Minecraft_files/video-01.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-02">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">02</span>
+          <h2>Красим корпус</h2>
+        </div>
+        <p>Выдели корпус и открой палитру цвета. Выбери жёлтый или золотистый оттенок — так пчела станет похожа на героиню Minecraft.</p>
+        <p>Если корпус получился слишком высоким или широким, подправь его размер белыми маркерами.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 2: Красим корпус">
+            <source src="Урок 3. Пчела из Minecraft_files/video-02.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-03">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">03</span>
+          <h2>Добавляем глаза</h2>
+        </div>
+        <p>Поставь на переднюю сторону два маленьких тёмных кубика. Рядом добавь белые кубики поменьше — это будут блики в глазах.</p>
+        <p>Расположи глаза на одной высоте и оставь между ними небольшой промежуток. Посмотри на пчелу спереди, чтобы проверить, ровно ли они стоят.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 3: Добавляем глаза">
+            <source src="Урок 3. Пчела из Minecraft_files/video-03.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-04">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">04</span>
+          <h2>Делаем чёрные полоски</h2>
+        </div>
+        <p>Добавь на спинку узкие тёмные прямоугольники. Расположи их поперёк корпуса и оставь между ними жёлтые промежутки.</p>
+        <p>Полоски должны идти ровно и не закрывать лицо. Поверни вид модели, чтобы увидеть, как они смотрятся сбоку и сзади.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 4: Делаем чёрные полоски">
+            <source src="Урок 3. Пчела из Minecraft_files/video-04.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-05">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">05</span>
+          <h2>Ставим лапки</h2>
+        </div>
+        <p>Сделай четыре небольших коричневых блока для лапок. Поставь две лапки ближе к передней части, а две — ближе к задней.</p>
+        <p>Лапки должны выглядывать из-под корпуса. Если одна оказалась не на месте, выдели её и передвинь.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 5: Ставим лапки">
+            <source src="Урок 3. Пчела из Minecraft_files/video-05.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-06">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">06</span>
+          <h2>Добавляем усики</h2>
+        </div>
+        <p>Сверху на голове поставь два тонких коричневых блока. Это усики. Немного раздвинь их, чтобы они не сливались в один.</p>
+        <p>Проверь пчелу спереди и сбоку. Глаза, полоски, лапки и усики должны быть на своих местах и держаться на корпусе.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 6: Добавляем усики">
+            <source src="Урок 3. Пчела из Minecraft_files/video-06.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+
+      <article class="step-card" id="step-07">
+        <div class="step-heading">
+          <span class="step-number" aria-hidden="true">07</span>
+          <h2>Проверяем и сохраняем</h2>
+        </div>
+        <p>Осмотри готовую модель со всех сторон. Если детали стоят ровно и ничего не потерялось, пчела готова.</p>
+        <p>В видео показано, как сделать копии пчелы и собрать из них целую компанию. Это необязательно: сначала сохрани одну свою модель, а копии добавь, если захочешь.</p>
+        <div class="video-wrap">
+          <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 7: Проверяем и сохраняем модель">
+            <source src="Урок 3. Пчела из Minecraft_files/video-07.mp4" type="video/mp4">
+            Твой браузер не смог открыть это видео.
+          </video>
+        </div>
+      </article>
+    </section>
+
+    <section class="step-card assignment" aria-labelledby="assignment-heading">
+      <div class="step-heading">
+        <span class="step-number" aria-hidden="true">★</span>
+        <h2 id="assignment-heading">Самостоятельное задание</h2>
+      </div>
+      <ol class="assignment-list">
+        <li>Перекрась пчёлок в любые цвета, которые тебе нравятся.</li>
+        <li>Создай для пчёлок крылышки и добавь их к модели. На примере крылья собраны из маленьких блоков.</li>
+      </ol>
+      <figure class="example">
+        <img src="Урок 3. Пчела из Minecraft_files/пример-пчелы-с-крыльями.png" alt="Пример пчелы из Minecraft с двумя крыльями, собранными из небольших светлых блоков" width="1164" height="637" loading="lazy">
+      </figure>
+    </section>
+
+    <aside class="finish">
+      <p>Готово! Ты собрал блочную пчелу из Minecraft. Теперь можешь изменить её цвета или добавить рядом ещё одну пчёлку.</p>
+    </aside>
+  </main>
+</body>
+</html>
