@@ -1,201 +1,121 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="page-index">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IT Camp · Методические пакеты</title>
-  <style>
-    :root {
-      --color-primary: #8b5cf6;
-      --color-primary-hover: #7c3aed;
-      --color-primary-light: #ede9fe;
-      --color-bg-page: #f5f7fa;
-      --color-bg-card: #ffffff;
-      --color-bg-muted: #f1f5f9;
-      --color-text-primary: #1e293b;
-      --color-text-secondary: #64748b;
-      --color-text-inverse: #ffffff;
-      --color-border: #e2e8f0;
-      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-      --radius-md: 12px;
-      --radius-card: 20px;
-      --radius-2xl: 24px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --lesson-max-width: 52rem;
-      --touch-target-min: 44px;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: var(--font-family-base);
-      font-size: 112.5%;
-      line-height: 1.5;
-      color: var(--color-text-primary);
-      background: var(--color-bg-page);
-    }
-    .wrap {
-      max-width: var(--lesson-max-width);
-      width: 100%;
-      margin: 0 auto;
-      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
-    }
-    .hero {
-      background: var(--gradient-primary);
-      color: var(--color-text-inverse);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-6);
-      margin-bottom: var(--space-6);
-    }
-    .hero__meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-bottom: var(--space-4);
-    }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 4px 12px;
-      border-radius: var(--radius-md);
-      font-size: 0.875rem;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .hero h1 {
-      margin: 0 0 var(--space-2);
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      line-height: 1.25;
-    }
-    .hero p { margin: 0; opacity: 0.95; }
-
-    .card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      padding: var(--space-5) var(--space-6);
-      margin-bottom: var(--space-5);
-    }
-    .card h2 {
-      margin: 0 0 var(--space-2);
-      font-size: 1.25rem;
-    }
-    .card > p {
-      margin: 0 0 var(--space-4);
-      color: var(--color-text-secondary);
-    }
-
-    .links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: var(--space-3);
-    }
-    .links a {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-2);
-      min-height: var(--touch-target-min);
-      padding: var(--space-3) var(--space-4);
-      border-radius: var(--radius-md);
-      background: var(--color-bg-muted);
-      color: var(--color-text-primary);
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid transparent;
-    }
-    .links a:hover {
-      border-color: var(--color-primary);
-      background: var(--color-primary-light);
-    }
-    .links .tag {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-    }
-
-    .module-path {
-      margin: 0 0 var(--space-3);
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
-      word-break: break-all;
-    }
-  </style>
+  <title>IT Camp · Оглавление</title>
+  
+  <link rel="stylesheet" href="new-method/styles.css">
 </head>
 <body>
-  <div class="wrap">
+  <main class="page">
     <header class="hero">
       <div class="hero__meta">
         <span class="chip">IT Camp</span>
         <span class="chip">Методические пакеты</span>
       </div>
       <h1>Оглавление</h1>
-      <p>Новые учебные материалы: модули, занятия и домашние задания.</p>
+      <p>Выбери занятие и открой его в новой вкладке. Внутри уроков нет переходов по оглавлению и между темами.</p>
     </header>
 
-    <section class="card">
-      <h2>Первые шаги в IT</h2>
-      <p class="module-path">new-method/first-steps-in-it/</p>
-      <p>Знакомство с компьютером, мышью и файлами. 12 занятий.</p>
-      <ul class="links">
-        <li>
-          <a href="new-method/first-steps-in-it/lessons/01.html">
-            <span>Занятие 1 · Знакомство с компьютером</span>
-            <span class="tag">lessons/01.html</span>
-          </a>
-        </li>
-        <li>
-          <a href="new-method/first-steps-in-it/homework/01.html">
-            <span>Домашнее задание 1 · Тренируем мышь</span>
-            <span class="tag">homework/01.html</span>
-          </a>
-        </li>
-      </ul>
+    <section class="section">
+      <div class="section__head">
+        <h2>Первые шаги в IT</h2>
+        <span class="section__count">1 модуль</span>
+      </div>
+      <p class="section__note">Клавиатура, мышь, папки, файлы и первые простые задачи на компьютере.</p>
+      <div class="grid">
+        <a class="tile" href="new-method/first-steps-in-it/lessons/01.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">01</span>
+            <span class="tile__tag">Урок</span>
+          </div>
+          <div>
+            <h3>Знакомство с компьютером</h3>
+            <p>Левая и правая кнопки мыши, окно, файлы и папки.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+
+        <a class="tile" href="new-method/first-steps-in-it/homework/01.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">HW</span>
+            <span class="tile__tag">Домашка</span>
+          </div>
+          <div>
+            <h3>Тренируем мышь</h3>
+            <p>Проверяем навык выделения, копирования и вставки.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>3D-моделирование с Tinkercad</h2>
-      <p class="module-path">3D-моделирование с Tinkecad (2026)/Учебные материалы/</p>
-      <p>Первые шаги в Tinkercad: вход в класс и создание модели корабля.</p>
-      <ul class="links">
-        <li>
-          <a href="3D-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%20Tinkecad%20(2026)/%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B5%20%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B/%D0%A3%D1%80%D0%BE%D0%BA%201.%20%D0%A1%D1%82%D0%B8%D0%B2%20%D0%B8%D0%B7%20Minecraft.html">
-            <span>Урок 1 · Стив из Minecraft</span>
-            <span class="tag">Открыть урок</span>
-          </a>
-        </li>
-        <li>
-          <a href="3D-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%20Tinkecad%20(2026)/%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B5%20%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B/%D0%A3%D1%80%D0%BE%D0%BA%202.%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%BE%D1%80%D0%B0%D0%B1%D0%BB%D1%8F.html">
-            <span>Урок 2 · Создание корабля</span>
-            <span class="tag">13 шагов с видео</span>
-          </a>
-        </li>
-      </ul>
+    <section class="section">
+      <div class="section__head">
+        <h2>3D-моделирование с Tinkercad</h2>
+        <span class="section__count">3 урока</span>
+      </div>
+      <p class="section__note">Создаём простые 3D-модели из кубиков, цветов и деталей.</p>
+      <div class="grid">
+        <a class="tile" href="new-method/tinkercad-3d-modeling/lessons/01-steve-from-minecraft.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">01</span>
+            <span class="tile__tag">Урок</span>
+          </div>
+          <div>
+            <h3>Стив из Minecraft</h3>
+            <p>Собираем главный персонаж из блоков и простых форм.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+
+        <a class="tile" href="new-method/tinkercad-3d-modeling/lessons/02-ship-building.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">02</span>
+            <span class="tile__tag">Урок</span>
+          </div>
+          <div>
+            <h3>Создание корабля</h3>
+            <p>Делаем корпус, палубу и окна в стиле яркой модели.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+
+        <a class="tile" href="new-method/tinkercad-3d-modeling/lessons/03-bee-from-minecraft.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">03</span>
+            <span class="tile__tag">Урок</span>
+          </div>
+          <div>
+            <h3>Пчела из Minecraft</h3>
+            <p>Добавляем жёлтые блоки, полоски, глаза и крылья.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Мастер-классы</h2>
-      <p class="module-path">masterclass/</p>
-      <p>Пробные занятия и воркшопы.</p>
-      <ul class="links">
-        <li>
-          <a href="masterclass/qwen-characters/index.html">
-            <span>Qwen · Генерация фото и видео собственных персонажей</span>
-            <span class="tag">qwen-characters/</span>
-          </a>
-        </li>
-      </ul>
+    <section class="section">
+      <div class="section__head">
+        <h2>Мастер-классы</h2>
+        <span class="section__count">1 проект</span>
+      </div>
+      <p class="section__note">Дополнительные задания и творчество с современными инструментами.</p>
+      <div class="grid">
+        <a class="tile" href="masterclass/qwen-characters/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="tile__top">
+            <span class="tile__icon">AI</span>
+            <span class="tile__tag">Мастер-класс</span>
+          </div>
+          <div>
+            <h3>Qwen · персонажи</h3>
+            <p>Генерируем фото и видео с собственными героями.</p>
+          </div>
+          <div class="tile__footer"><span>Открыть</span><span class="arrow">→</span></div>
+        </a>
+      </div>
     </section>
-  </div>
+  </main>
 </body>
 </html>

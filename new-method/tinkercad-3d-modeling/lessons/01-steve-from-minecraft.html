@@ -1,334 +1,13 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="page-tinkercad-steve">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f7fa">
   <meta name="description" content="Собери Стива из Minecraft в Tinkercad шаг за шагом.">
   <title>Урок 1. Стив из Minecraft — IT CAMP</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --color-primary: #8b5cf6;
-      --color-primary-hover: #7c3aed;
-      --color-primary-light: #ede9fe;
-      --color-info-light: #dbeafe;
-      --color-warning-light: #fef3c7;
-      --color-bg-page: #f5f7fa;
-      --color-bg-card: #ffffff;
-      --color-bg-muted: #f1f5f9;
-      --color-text-primary: #1e293b;
-      --color-text-secondary: #64748b;
-      --color-border: #e2e8f0;
-      --radius-md: 12px;
-      --radius-card: 20px;
-      --radius-panel: 24px;
-      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --content-width: 52rem;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--color-bg-page);
-      color: var(--color-text-primary);
-      font-family: var(--font-family-base);
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--color-primary-hover);
-    }
-
-    a:focus-visible {
-      outline: 3px solid var(--color-primary);
-      outline-offset: 3px;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      z-index: 1;
-      padding: 10px 14px;
-      transform: translateY(-150%);
-      border-radius: var(--radius-md);
-      background: var(--color-bg-card);
-      color: var(--color-text-primary);
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .page {
-      width: min(100% - 32px, var(--content-width));
-      margin-inline: auto;
-      padding-block: 32px 64px;
-    }
-
-    .hero {
-      padding: clamp(24px, 6vw, 48px);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-panel);
-      background: var(--color-bg-card);
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--color-primary-hover);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 16ch;
-      margin-bottom: 16px;
-      font-size: clamp(2rem, 7vw, 3.25rem);
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-    }
-
-    .intro {
-      max-width: 62ch;
-      margin-bottom: 0;
-      color: var(--color-text-secondary);
-      font-size: 1.08rem;
-    }
-
-    .example {
-      margin: 24px 0 0;
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      background: var(--color-bg-muted);
-    }
-
-    .example img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .example figcaption {
-      padding: 12px 16px;
-      color: var(--color-text-secondary);
-    }
-
-    .steps {
-      display: grid;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .step-card {
-      padding: clamp(20px, 5vw, 32px);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      background: var(--color-bg-card);
-    }
-
-    .step-heading {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .step-number {
-      display: grid;
-      flex: 0 0 44px;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      border-radius: var(--radius-md);
-      background: var(--color-primary-light);
-      color: var(--color-primary-hover);
-      font-size: 0.95rem;
-      font-weight: 800;
-      font-variant-numeric: tabular-nums;
-    }
-
-    h2 {
-      margin: 5px 0 0;
-      font-size: clamp(1.25rem, 4vw, 1.55rem);
-      line-height: 1.3;
-    }
-
-    .step-card p {
-      margin-bottom: 14px;
-    }
-
-    .step-card p:last-of-type {
-      margin-bottom: 20px;
-    }
-
-    .step-card .step-heading + p:last-of-type {
-      margin-bottom: 20px;
-    }
-
-    .join-options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .option-card {
-      padding: 20px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-      background: var(--color-bg-muted);
-    }
-
-    .option-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-    }
-
-    .option-card p {
-      margin-bottom: 16px;
-    }
-
-    .option-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border: 1px solid var(--color-primary);
-      border-radius: var(--radius-md);
-      background: var(--color-primary);
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.3;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .button:hover {
-      border-color: var(--color-primary-hover);
-      background: var(--color-primary-hover);
-    }
-
-    .code {
-      display: inline-block;
-      padding: 2px 8px;
-      border: 1px solid #c4b5fd;
-      border-radius: 8px;
-      background: var(--color-primary-light);
-      color: var(--color-primary-hover);
-      font-size: 0.95em;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-    }
-
-    .join-name,
-    .note {
-      margin-top: 16px;
-      padding: 20px 24px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-card);
-    }
-
-    .join-name {
-      border-color: #bfdbfe;
-      background: var(--color-info-light);
-    }
-
-    .join-name p:last-child,
-    .note p:last-child {
-      margin-bottom: 0;
-    }
-
-    .note {
-      border-color: #fcd34d;
-      background: var(--color-warning-light);
-    }
-
-    .note h3 {
-      margin: 0 0 8px;
-    }
-
-    .note a {
-      font-weight: 700;
-    }
-
-    .video-wrap {
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background: #0f172a;
-    }
-
-    video {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: 1920 / 980;
-      background: #0f172a;
-    }
-
-    .finish {
-      margin-top: 24px;
-      padding: 24px;
-      border: 1px solid #a7f3d0;
-      border-radius: var(--radius-card);
-      background: #ecfdf5;
-    }
-
-    .finish p {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 640px) {
-      .join-options {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 520px) {
-      body {
-        font-size: 16px;
-      }
-
-      .page {
-        width: min(100% - 20px, var(--content-width));
-        padding-block: 10px 36px;
-      }
-
-      .hero {
-        border-radius: var(--radius-card);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
+  
+  <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
   <a class="skip-link" href="#lesson-steps">Перейти к шагам урока</a>
@@ -338,7 +17,7 @@
       <h1>Урок 1. Стив из Minecraft</h1>
       <p class="intro">Собери Стива из простых фигур в Tinkercad. Смотри короткое видео к каждому шагу и повторяй за ним.</p>
       <figure class="example">
-        <img src="Урок 1. Стив из Minecraft_files/пример-Стива.png" alt="Готовая 3D-модель Стива из Minecraft: жёлтое лицо, коричневые волосы и голубая одежда" width="725" height="453">
+        <img src="01-steve-from-minecraft_files/пример-Стива.png" alt="Готовая 3D-модель Стива из Minecraft: жёлтое лицо, коричневые волосы и голубая одежда" width="725" height="453">
       </figure>
     </header>
 
@@ -375,7 +54,7 @@
         <p>Перетащи параллелепипед на рабочую плоскость и измени его размер. По видео собери широкую верхнюю часть и узкое туловище Стива.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 1: Собираем туловище">
-            <source src="Урок 1. Стив из Minecraft_files/video-01.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-01.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -389,7 +68,7 @@
         <p>Выдели фигуру и потяни за белые маркеры, чтобы получить нужную форму. Повторяй движения из видео и не торопись.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 2: Настраиваем размер детали">
-            <source src="Урок 1. Стив из Minecraft_files/video-02.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-02.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -403,7 +82,7 @@
         <p>Добавь новые блоки и поставь их рядом с туловищем, как показано в видео. Проверь, что детали стоят на рабочей плоскости.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 3: Добавляем детали тела">
-            <source src="Урок 1. Стив из Minecraft_files/video-03.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-03.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -417,7 +96,7 @@
         <p>Выдели нужную фигуру и открой палитру цвета. Подбери оттенки для одежды и кожи, как в примере.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 4: Выбираем цвета">
-            <source src="Урок 1. Стив из Minecraft_files/video-04.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-04.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -431,7 +110,7 @@
         <p>Выдели связанные детали и объедини их командой группировки, как в видео. Так части модели будут держаться вместе.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 5: Соединяем детали">
-            <source src="Урок 1. Стив из Minecraft_files/video-05.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-05.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -445,7 +124,7 @@
         <p>Добавь две детали для ног. Расположи их под туловищем и оставь небольшой промежуток между ними.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 6: Делаем ноги">
-            <source src="Урок 1. Стив из Minecraft_files/video-06.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-06.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -459,7 +138,7 @@
         <p>Посмотри на модель с разных сторон. Проверь, что руки и ноги стоят ровно, а части тела не потерялись.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 7: Проверяем форму тела">
-            <source src="Урок 1. Стив из Minecraft_files/video-07.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-07.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -473,7 +152,7 @@
         <p>Найди голову персонажа в библиотеке фигур и поставь её на туловище. Подгони положение, как показано в видео.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 8: Добавляем голову">
-            <source src="Урок 1. Стив из Minecraft_files/video-08.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-08.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>
@@ -487,7 +166,7 @@
         <p>Осмотри готового Стива. Если какая-то деталь стоит криво, выдели её и поправь положение.</p>
         <div class="video-wrap">
           <video controls loop playsinline preload="metadata" width="1920" height="980" aria-label="Видео к шагу 9: Завершаем модель">
-            <source src="Урок 1. Стив из Minecraft_files/video-09.mp4" type="video/mp4">
+            <source src="01-steve-from-minecraft_files/video-09.mp4" type="video/mp4">
             Твой браузер не смог открыть это видео.
           </video>
         </div>

@@ -1,0 +1,1612 @@
+/* Shared stylesheet for method pages. */
+
+/* index.html */
+
+    html.page-index {
+      --color-primary: #8b5cf6;
+      --color-primary-dark: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-xl: 24px;
+      --font-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --content-width: 72rem;
+    }
+
+    html.page-index * { box-sizing: border-box; }
+    html.page-index { scroll-behavior: smooth; }
+    html.page-index body {
+      margin: 0;
+      font-family: var(--font-base);
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    html.page-index a {
+      color: inherit;
+      text-decoration: none;
+    }
+    html.page-index .page {
+      max-width: var(--content-width);
+      width: min(100% - 32px, var(--content-width));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+    html.page-index .hero {
+      background: var(--gradient-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 5vw, 48px);
+      margin-bottom: 24px;
+    }
+    html.page-index .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    html.page-index .chip {
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.18);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    html.page-index h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+    html.page-index .hero p {
+      margin: 0;
+      max-width: 42rem;
+      opacity: 0.96;
+      font-size: 1.05rem;
+    }
+    html.page-index .section {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    html.page-index .section__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    html.page-index .section h2 {
+      margin: 0;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+    }
+    html.page-index .section__count {
+      color: var(--color-text-secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    html.page-index .section__note {
+      margin: 0 0 20px;
+      color: var(--color-text-secondary);
+      font-size: 0.98rem;
+    }
+    html.page-index .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    html.page-index .tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+      padding: 18px 18px 16px;
+      background: linear-gradient(180deg, var(--color-bg-card) 0%, var(--color-bg-muted) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    html.page-index .tile:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.08);
+    }
+    html.page-index .tile__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    html.page-index .tile__icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--gradient-secondary);
+      color: var(--color-text-inverse);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    html.page-index .tile__tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-primary-dark);
+      background: var(--color-primary-light);
+      border-radius: 999px;
+      padding: 6px 9px;
+    }
+    html.page-index .tile h3 {
+      margin: 16px 0 8px;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+    html.page-index .tile p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+    html.page-index .tile__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      color: var(--color-text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    html.page-index .arrow {
+      color: var(--color-primary-dark);
+      font-size: 1.15rem;
+    }
+    @media (max-width: 560px) {
+      html.page-index .page { width: min(100% - 20px, var(--content-width)); }
+      html.page-index .section { padding: 18px; }
+      html.page-index .section__head { align-items: flex-start; flex-direction: column; }
+    }
+  
+
+/* new-method/first-steps-in-it/lessons/01.html */
+
+    html.page-first-steps-lesson {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-secondary-light: #dbeafe;
+      --color-success: #10b981;
+      --color-success-light: #d1fae5;
+      --color-warning: #f59e0b;
+      --color-warning-light: #fef3c7;
+      --color-error: #ef4444;
+      --color-error-light: #fee2e2;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-muted: #94a3b8;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 72rem;
+      --touch-target-min: 44px;
+    }
+
+    html.page-first-steps-lesson * { box-sizing: border-box; }
+    html.page-first-steps-lesson body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    html.page-first-steps-lesson .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    html.page-first-steps-lesson .hero {
+      background: var(--gradient-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6) var(--space-6) var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+    html.page-first-steps-lesson .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    html.page-first-steps-lesson .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    html.page-first-steps-lesson .hero h1 {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.25;
+    }
+    html.page-first-steps-lesson .hero p {
+      margin: 0;
+      opacity: 0.95;
+      max-width: 36rem;
+    }
+    html.page-first-steps-lesson .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    html.page-first-steps-lesson .card h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 1.25rem;
+    }
+    html.page-first-steps-lesson .card h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 1.05rem;
+    }
+    html.page-first-steps-lesson .card p { margin: 0 0 var(--space-3); color: var(--color-text-primary); }
+    html.page-first-steps-lesson .card p:last-child { margin-bottom: 0; }
+    html.page-first-steps-lesson .muted { color: var(--color-text-secondary); }
+    html.page-first-steps-lesson .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+    html.page-first-steps-lesson .steps li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: var(--space-3);
+      align-items: start;
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+    }
+    html.page-first-steps-lesson .steps .num {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html.page-first-steps-lesson .quiz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    @media (max-width: 640px) {
+      html.page-first-steps-lesson .quiz-grid { grid-template-columns: 1fr; }
+    }
+    html.page-first-steps-lesson .quiz-btn {
+      min-height: var(--touch-target-min);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      padding: var(--space-3) var(--space-4);
+      font: inherit;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    html.page-first-steps-lesson .quiz-btn:hover { border-color: var(--color-primary); }
+    html.page-first-steps-lesson .quiz-btn.is-correct {
+      border-color: var(--color-success);
+      background: var(--color-success-light);
+    }
+    html.page-first-steps-lesson .quiz-btn.is-wrong {
+      border-color: var(--color-error);
+      background: var(--color-error-light);
+    }
+    html.page-first-steps-lesson .quiz-feedback {
+      margin-top: var(--space-3);
+      min-height: 1.5em;
+      font-weight: 600;
+    }
+    html.page-first-steps-lesson .quiz-feedback.ok { color: var(--color-success); }
+    html.page-first-steps-lesson .quiz-feedback.bad { color: var(--color-error); }
+
+    html.page-first-steps-lesson .media-ph {
+      border: 2px dashed var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+      padding: var(--space-6) var(--space-4);
+      text-align: center;
+      color: var(--color-text-secondary);
+      margin: var(--space-4) 0;
+    }
+    html.page-first-steps-lesson .media-ph strong { display: block; color: var(--color-text-primary); margin-bottom: var(--space-2); }
+
+    html.page-first-steps-lesson .figure {
+      margin: var(--space-4) 0 0;
+      text-align: center;
+    }
+    html.page-first-steps-lesson .figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: var(--radius-card);
+    }
+    html.page-first-steps-lesson .figure figcaption {
+      margin-top: var(--space-3);
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    html.page-first-steps-lesson .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    html.page-first-steps-lesson .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    @media (min-width: 900px) {
+      html.page-first-steps-lesson .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 640px) {
+      html.page-first-steps-lesson .grid-2 { grid-template-columns: 1fr; }
+      html.page-first-steps-lesson .grid-4 { grid-template-columns: 1fr; }
+    }
+    html.page-first-steps-lesson .mini {
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    html.page-first-steps-lesson .mini h3 { margin: 0 0 var(--space-2); font-size: 1rem; }
+    html.page-first-steps-lesson .mini p { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; }
+    html.page-first-steps-lesson .idea {
+      background: var(--color-bg-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-align: center;
+    }
+    html.page-first-steps-lesson .idea .emoji {
+      display: block;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: var(--space-2);
+    }
+    html.page-first-steps-lesson .idea h3 {
+      margin: 0 0 var(--space-2);
+      font-size: 1rem;
+    }
+    html.page-first-steps-lesson .idea p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    html.page-first-steps-lesson .rules {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    html.page-first-steps-lesson .rules li { margin-bottom: var(--space-2); }
+
+  
+
+/* new-method/first-steps-in-it/homework/01.html */
+
+    html.page-first-steps-homework {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-success: #10b981;
+      --color-success-light: #d1fae5;
+      --color-warning: #f59e0b;
+      --color-warning-light: #fef3c7;
+      --color-error: #ef4444;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --gradient-orange: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 72rem;
+      --touch-target-min: 44px;
+    }
+
+    html.page-first-steps-homework * { box-sizing: border-box; }
+    html.page-first-steps-homework body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    html.page-first-steps-homework .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    html.page-first-steps-homework .hero {
+      background: var(--gradient-orange);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    html.page-first-steps-homework .hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+    html.page-first-steps-homework .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    html.page-first-steps-homework .hero h1 { margin: 0 0 var(--space-2); font-size: clamp(1.4rem, 4vw, 1.85rem); }
+    html.page-first-steps-homework .hero p { margin: 0; max-width: 36rem; }
+
+    html.page-first-steps-homework .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    html.page-first-steps-homework .card h2 { margin: 0 0 var(--space-3); font-size: 1.25rem; }
+    html.page-first-steps-homework .card p { margin: 0 0 var(--space-3); }
+    html.page-first-steps-homework .card p:last-child { margin-bottom: 0; }
+    html.page-first-steps-homework .muted { color: var(--color-text-secondary); }
+
+    html.page-first-steps-homework .steps { margin: 0; padding-left: 1.2rem; }
+    html.page-first-steps-homework .steps li { margin-bottom: var(--space-2); }
+
+    html.page-first-steps-homework .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+    html.page-first-steps-homework .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--touch-target-min);
+      padding: 0 var(--space-5);
+      border-radius: var(--radius-md);
+      font: inherit;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    html.page-first-steps-homework .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+    html.page-first-steps-homework .btn-primary:hover { background: var(--color-primary-hover); }
+    html.page-first-steps-homework .btn-primary:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    html.page-first-steps-homework .btn-secondary {
+      background: var(--color-bg-card);
+      border-color: var(--color-border);
+      color: var(--color-text-primary);
+    }
+    html.page-first-steps-homework .time-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    html.page-first-steps-homework .time-pills label {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--touch-target-min);
+      padding: 0 14px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-border);
+      background: var(--color-bg-muted);
+      cursor: pointer;
+      font-weight: 700;
+      gap: 6px;
+    }
+    html.page-first-steps-homework .time-pills input { accent-color: var(--color-primary); }
+    html.page-first-steps-homework .time-pills label:has(input:checked) {
+      border-color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    html.page-first-steps-homework .hud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+      font-weight: 700;
+    }
+    html.page-first-steps-homework .hud span { color: var(--color-text-secondary); font-weight: 600; }
+
+    html.page-first-steps-homework .arena {
+      position: relative;
+      height: min(52vh, 420px);
+      min-height: 280px;
+      border-radius: var(--radius-card);
+      background: linear-gradient(160deg, #1e293b 0%, #334155 100%);
+      overflow: hidden;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    html.page-first-steps-homework .arena.is-idle::after {
+      content: "Выбери время и нажми «Старт»";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 700;
+      pointer-events: none;
+      padding: var(--space-4);
+      text-align: center;
+    }
+    html.page-first-steps-homework .target {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: radial-gradient(circle at 35% 35%, #fda4af, #ef4444 55%, #b91c1c);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      cursor: crosshair;
+      transform: translate(-50%, -50%);
+    }
+    html.page-first-steps-homework .result {
+      display: none;
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-success-light);
+      font-weight: 700;
+    }
+    html.page-first-steps-homework .result.show { display: block; }
+
+    html.page-first-steps-homework .figure {
+      margin: var(--space-4) 0 0;
+      text-align: center;
+    }
+    html.page-first-steps-homework .figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: var(--radius-card);
+    }
+    html.page-first-steps-homework .figure figcaption {
+      margin-top: var(--space-3);
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+  
+
+/* new-method/masterclass/qwen-characters/index.html */
+
+    html.page-qwen-masterclass {
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-secondary: #3b82f6;
+      --color-success: #10b981;
+      --color-success-light: #d1fae5;
+      --color-warning-light: #fef3c7;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-text-inverse: #ffffff;
+      --color-border: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-2xl: 24px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --lesson-max-width: 72rem;
+    }
+    html.page-qwen-masterclass * { box-sizing: border-box; }
+    html.page-qwen-masterclass body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      font-size: 112.5%;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg-page);
+    }
+    html.page-qwen-masterclass .wrap {
+      max-width: var(--lesson-max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8)) var(--space-8);
+    }
+    html.page-qwen-masterclass .hero {
+      background: var(--gradient-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    html.page-qwen-masterclass .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    html.page-qwen-masterclass .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    html.page-qwen-masterclass .hero h1 {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      line-height: 1.25;
+    }
+    html.page-qwen-masterclass .hero p { margin: 0 0 var(--space-2); opacity: 0.95; }
+    html.page-qwen-masterclass .hero p:last-child { margin-bottom: 0; }
+    html.page-qwen-masterclass .card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    html.page-qwen-masterclass .card h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 1.25rem;
+    }
+    html.page-qwen-masterclass .card h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 1.05rem;
+    }
+    html.page-qwen-masterclass .card h3:first-child { margin-top: 0; }
+    html.page-qwen-masterclass .card p { margin: 0 0 var(--space-3); }
+    html.page-qwen-masterclass .card p:last-child { margin-bottom: 0; }
+    html.page-qwen-masterclass .muted { color: var(--color-text-secondary); }
+    html.page-qwen-masterclass .time {
+      display: inline-block;
+      margin-bottom: var(--space-3);
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    html.page-qwen-masterclass ul,
+html.page-qwen-masterclass ol {
+      margin: 0 0 var(--space-3);
+      padding-left: 1.25rem;
+    }
+    html.page-qwen-masterclass li { margin-bottom: var(--space-2); }
+    html.page-qwen-masterclass li:last-child { margin-bottom: 0; }
+    html.page-qwen-masterclass .quote {
+      margin: var(--space-3) 0;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-muted);
+      color: var(--color-text-secondary);
+      font-weight: 600;
+    }
+    html.page-qwen-masterclass .prompt {
+      margin: var(--space-3) 0;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    html.page-qwen-masterclass .formula {
+      margin: var(--space-3) 0;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      font-weight: 700;
+      word-break: break-word;
+    }
+    html.page-qwen-masterclass .pair {
+      margin: var(--space-3) 0;
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-muted);
+    }
+    html.page-qwen-masterclass .pair strong { display: block; margin-bottom: var(--space-2); }
+    html.page-qwen-masterclass table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-3) 0;
+      font-size: 0.98rem;
+    }
+    html.page-qwen-masterclass th,
+html.page-qwen-masterclass td {
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+    html.page-qwen-masterclass th {
+      background: var(--color-bg-muted);
+      font-weight: 700;
+    }
+    html.page-qwen-masterclass tr:last-child td { border-bottom: none; }
+    html.page-qwen-masterclass .figure {
+      margin: var(--space-4) 0;
+      text-align: center;
+    }
+    html.page-qwen-masterclass .figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-card);
+    }
+    html.page-qwen-masterclass .check {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+    html.page-qwen-masterclass .check li {
+      margin: 0;
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-success-light);
+    }
+  
+
+/* new-method/tinkercad-3d-modeling/lessons/01-steve-from-minecraft.html */
+
+    html.page-tinkercad-steve {
+      color-scheme: light;
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-info-light: #dbeafe;
+      --color-warning-light: #fef3c7;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-panel: 24px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --content-width: 52rem;
+    }
+
+    html.page-tinkercad-steve * {
+      box-sizing: border-box;
+    }
+
+    html.page-tinkercad-steve {
+      scroll-behavior: smooth;
+    }
+
+    html.page-tinkercad-steve body {
+      margin: 0;
+      background: var(--color-bg-page);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-base);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    html.page-tinkercad-steve a {
+      color: var(--color-primary-hover);
+    }
+
+    html.page-tinkercad-steve a:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    html.page-tinkercad-steve .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      color: var(--color-text-primary);
+    }
+
+    html.page-tinkercad-steve .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    html.page-tinkercad-steve .page {
+      width: min(100% - 32px, var(--content-width));
+      margin-inline: auto;
+      padding-block: 32px 64px;
+    }
+
+    html.page-tinkercad-steve .hero {
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-panel);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-steve .eyebrow {
+      margin: 0 0 12px;
+      color: var(--color-primary-hover);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    html.page-tinkercad-steve h1,
+html.page-tinkercad-steve h2,
+html.page-tinkercad-steve p {
+      margin-top: 0;
+    }
+
+    html.page-tinkercad-steve h1 {
+      max-width: 16ch;
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 7vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    html.page-tinkercad-steve .intro {
+      max-width: 62ch;
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+      font-size: 1.08rem;
+    }
+
+    html.page-tinkercad-steve .example {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    html.page-tinkercad-steve .example img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    html.page-tinkercad-steve .example figcaption {
+      padding: 12px 16px;
+      color: var(--color-text-secondary);
+    }
+
+    html.page-tinkercad-steve .steps {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    html.page-tinkercad-steve .step-card {
+      padding: clamp(20px, 5vw, 32px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-steve .step-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    html.page-tinkercad-steve .step-number {
+      display: grid;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    html.page-tinkercad-steve h2 {
+      margin: 5px 0 0;
+      font-size: clamp(1.25rem, 4vw, 1.55rem);
+      line-height: 1.3;
+    }
+
+    html.page-tinkercad-steve .step-card p {
+      margin-bottom: 14px;
+    }
+
+    html.page-tinkercad-steve .step-card p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    html.page-tinkercad-steve .step-card .step-heading + p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    html.page-tinkercad-steve .join-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    html.page-tinkercad-steve .option-card {
+      padding: 20px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    html.page-tinkercad-steve .option-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    html.page-tinkercad-steve .option-card p {
+      margin-bottom: 16px;
+    }
+
+    html.page-tinkercad-steve .option-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    html.page-tinkercad-steve .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      background: var(--color-primary);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    html.page-tinkercad-steve .button:hover {
+      border-color: var(--color-primary-hover);
+      background: var(--color-primary-hover);
+    }
+
+    html.page-tinkercad-steve .code {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid #c4b5fd;
+      border-radius: 8px;
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-size: 0.95em;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    html.page-tinkercad-steve .join-name,
+html.page-tinkercad-steve .note {
+      margin-top: 16px;
+      padding: 20px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+    }
+
+    html.page-tinkercad-steve .join-name {
+      border-color: #bfdbfe;
+      background: var(--color-info-light);
+    }
+
+    html.page-tinkercad-steve .join-name p:last-child,
+html.page-tinkercad-steve .note p:last-child {
+      margin-bottom: 0;
+    }
+
+    html.page-tinkercad-steve .note {
+      border-color: #fcd34d;
+      background: var(--color-warning-light);
+    }
+
+    html.page-tinkercad-steve .note h3 {
+      margin: 0 0 8px;
+    }
+
+    html.page-tinkercad-steve .note a {
+      font-weight: 700;
+    }
+
+    html.page-tinkercad-steve .video-wrap {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-steve video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1920 / 980;
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-steve .finish {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius-card);
+      background: #ecfdf5;
+    }
+
+    html.page-tinkercad-steve .finish p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+      html.page-tinkercad-steve .join-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      html.page-tinkercad-steve body {
+        font-size: 16px;
+      }
+
+      html.page-tinkercad-steve .page {
+        width: min(100% - 20px, var(--content-width));
+        padding-block: 10px 36px;
+      }
+
+      html.page-tinkercad-steve .hero {
+        border-radius: var(--radius-card);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.page-tinkercad-steve {
+        scroll-behavior: auto;
+      }
+    }
+  
+
+/* new-method/tinkercad-3d-modeling/lessons/02-ship-building.html */
+
+    html.page-tinkercad-ship {
+      color-scheme: light;
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-success: #10b981;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-panel: 24px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --content-width: 52rem;
+    }
+
+    html.page-tinkercad-ship * {
+      box-sizing: border-box;
+    }
+
+    html.page-tinkercad-ship {
+      scroll-behavior: smooth;
+    }
+
+    html.page-tinkercad-ship body {
+      margin: 0;
+      background: var(--color-bg-page);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-base);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    html.page-tinkercad-ship a {
+      color: var(--color-primary-hover);
+    }
+
+    html.page-tinkercad-ship a:focus-visible,
+html.page-tinkercad-ship input:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    html.page-tinkercad-ship .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      color: var(--color-text-primary);
+    }
+
+    html.page-tinkercad-ship .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    html.page-tinkercad-ship .page {
+      width: min(100% - 32px, var(--content-width));
+      margin-inline: auto;
+      padding-block: 32px 64px;
+    }
+
+    html.page-tinkercad-ship .hero {
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-panel);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-ship .eyebrow {
+      margin: 0 0 12px;
+      color: var(--color-primary-hover);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    html.page-tinkercad-ship h1,
+html.page-tinkercad-ship h2,
+html.page-tinkercad-ship p {
+      margin-top: 0;
+    }
+
+    html.page-tinkercad-ship h1 {
+      max-width: 16ch;
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 7vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    html.page-tinkercad-ship .intro {
+      max-width: 62ch;
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+      font-size: 1.08rem;
+    }
+
+    html.page-tinkercad-ship .example {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    html.page-tinkercad-ship .example img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    html.page-tinkercad-ship .steps {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    html.page-tinkercad-ship .step-card {
+      padding: clamp(20px, 5vw, 32px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-ship .step-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    html.page-tinkercad-ship .step-number {
+      display: grid;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    html.page-tinkercad-ship h2 {
+      margin: 5px 0 0;
+      font-size: clamp(1.25rem, 4vw, 1.55rem);
+      line-height: 1.3;
+    }
+
+    html.page-tinkercad-ship .step-card p {
+      margin-bottom: 14px;
+    }
+
+    html.page-tinkercad-ship .step-card p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    html.page-tinkercad-ship .video-wrap {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-ship video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1920 / 980;
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-ship .finish {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius-card);
+      background: #ecfdf5;
+    }
+
+    html.page-tinkercad-ship .finish p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 520px) {
+      html.page-tinkercad-ship body {
+        font-size: 16px;
+      }
+
+      html.page-tinkercad-ship .page {
+        width: min(100% - 20px, var(--content-width));
+        padding-block: 10px 36px;
+      }
+
+      html.page-tinkercad-ship .hero {
+        border-radius: var(--radius-card);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.page-tinkercad-ship {
+        scroll-behavior: auto;
+      }
+    }
+  
+
+/* new-method/tinkercad-3d-modeling/lessons/03-bee-from-minecraft.html */
+
+    html.page-tinkercad-bee {
+      color-scheme: light;
+      --color-primary: #8b5cf6;
+      --color-primary-hover: #7c3aed;
+      --color-primary-light: #ede9fe;
+      --color-success: #10b981;
+      --color-bg-page: #f5f7fa;
+      --color-bg-card: #ffffff;
+      --color-bg-muted: #f1f5f9;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --radius-md: 12px;
+      --radius-card: 20px;
+      --radius-panel: 24px;
+      --font-family-base: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --content-width: 52rem;
+    }
+
+    html.page-tinkercad-bee * {
+      box-sizing: border-box;
+    }
+
+    html.page-tinkercad-bee {
+      scroll-behavior: smooth;
+    }
+
+    html.page-tinkercad-bee body {
+      margin: 0;
+      background: var(--color-bg-page);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-base);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    html.page-tinkercad-bee a {
+      color: var(--color-primary-hover);
+    }
+
+    html.page-tinkercad-bee a:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    html.page-tinkercad-bee .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      color: var(--color-text-primary);
+    }
+
+    html.page-tinkercad-bee .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    html.page-tinkercad-bee .page {
+      width: min(100% - 32px, var(--content-width));
+      margin-inline: auto;
+      padding-block: 32px 64px;
+    }
+
+    html.page-tinkercad-bee .hero {
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-panel);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-bee .eyebrow {
+      margin: 0 0 12px;
+      color: var(--color-primary-hover);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    html.page-tinkercad-bee h1,
+html.page-tinkercad-bee h2,
+html.page-tinkercad-bee p {
+      margin-top: 0;
+    }
+
+    html.page-tinkercad-bee h1 {
+      max-width: 16ch;
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 7vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    html.page-tinkercad-bee .intro {
+      max-width: 62ch;
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+      font-size: 1.08rem;
+    }
+
+    html.page-tinkercad-bee .example {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-muted);
+    }
+
+    html.page-tinkercad-bee .example img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    html.page-tinkercad-bee .steps {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    html.page-tinkercad-bee .step-card {
+      padding: clamp(20px, 5vw, 32px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      background: var(--color-bg-card);
+    }
+
+    html.page-tinkercad-bee .step-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    html.page-tinkercad-bee .step-number {
+      display: grid;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    html.page-tinkercad-bee h2 {
+      margin: 5px 0 0;
+      font-size: clamp(1.25rem, 4vw, 1.55rem);
+      line-height: 1.3;
+    }
+
+    html.page-tinkercad-bee .step-card p {
+      margin-bottom: 14px;
+    }
+
+    html.page-tinkercad-bee .step-card p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    html.page-tinkercad-bee .video-wrap {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-bee video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1920 / 980;
+      background: #0f172a;
+    }
+
+    html.page-tinkercad-bee .finish {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius-card);
+      background: #ecfdf5;
+    }
+
+    html.page-tinkercad-bee .finish p {
+      margin-bottom: 0;
+    }
+
+    html.page-tinkercad-bee .assignment {
+      margin-top: 24px;
+    }
+
+    html.page-tinkercad-bee .assignment-list {
+      margin: 0;
+      padding-left: 1.5em;
+    }
+
+    html.page-tinkercad-bee .assignment-list li + li {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 520px) {
+      html.page-tinkercad-bee body {
+        font-size: 16px;
+      }
+
+      html.page-tinkercad-bee .page {
+        width: min(100% - 20px, var(--content-width));
+        padding-block: 10px 36px;
+      }
+
+      html.page-tinkercad-bee .hero {
+        border-radius: var(--radius-card);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.page-tinkercad-bee {
+        scroll-behavior: auto;
+      }
+    }
+  
